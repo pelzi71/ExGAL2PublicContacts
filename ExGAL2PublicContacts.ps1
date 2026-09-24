@@ -2,7 +2,7 @@
 <#
 ========================================================================
  ExGAL2PublicContacts
- Version: 0.1.1
+ Version: 0.1.2
 
  Read-Only development version.
  Reads Exchange UserMailbox objects, AD account status and existing
@@ -15,13 +15,19 @@
 #>
 
 [CmdletBinding()]
-param([switch]$VerboseLog)
+param(
+    [Parameter(Mandatory = $true)]
+    [ValidatePattern('^https://')]
+    [string]$EwsUrl,
+
+    [switch]$VerboseLog
+)
 
 # ---------------------------- Configuration ----------------------------
 
-$Script:Version          = '0.1.0'
+$Script:Version          = '0.1.2'
 $Script:EwsDll           = 'D:\ExchangeServer\Bin\Microsoft.Exchange.WebServices.dll'
-$Script:EwsUrl           = 'https://localhost/EWS/Exchange.asmx'
+$Script:EwsUrl           = $EwsUrl
 $Script:PublicFolderPath = 'Kontakte\Verwaltung'
 $Script:LogFolder        = 'C:\Logs\ExGAL2PublicContacts'
 
