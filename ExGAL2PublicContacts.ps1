@@ -2,7 +2,7 @@
 <#
 ========================================================================
  ExGAL2PublicContacts
- Version: 0.1.0
+ Version: 0.1.1
 
  Read-Only development version.
  Reads Exchange UserMailbox objects, AD account status and existing
@@ -115,12 +115,6 @@ function Connect-Ews {
     $Script:Service = New-Object Microsoft.Exchange.WebServices.Data.ExchangeService($version)
     $Script:Service.UseDefaultCredentials = $true
     $Script:Service.Url = $Script:EwsUrl
-
-    # Nur fuer den lokalen Entwicklungs-/Testlauf. Spaeter entfernen.
-    [System.Net.ServicePointManager]::ServerCertificateValidationCallback = {
-        param($sender,$certificate,$chain,$sslPolicyErrors)
-        $true
-    }
 
     Write-Log OK 'EWS-Verbindung erstellt.'
 }
