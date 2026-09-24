@@ -1,0 +1,27 @@
+# Logs
+*.log
+Logs/
+
+# Temporary files
+*.tmp
+*.temp
+
+# PowerShell
+*.ps1~
+
+
+# Visual Studio Code
+.vscode/
+
+# Visual Studio
+.vs/
+bin/
+obj/
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Local configuration
+local/
+config.local.*
